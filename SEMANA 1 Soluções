@@ -1,0 +1,67 @@
+Problema 1: Retirar exatamente sete litros de água usando dois baldes (um de 5 litros e outro de 3 litros)
+
+Solução:
+
+Encha o balde de 5 litros completamente.
+
+Transfira a água do balde de 5 litros para o balde de 3 litros até que o balde de 3 litros esteja cheio. Agora o balde de 5 litros terá 2 litros de água.
+
+Esvazie o balde de 3 litros.
+
+Transfira os 2 litros restantes do balde de 5 litros para o balde de 3 litros.
+
+Encha o balde de 5 litros novamente até 5 litros.
+
+Transfira a água do balde de 5 litros para o balde de 3 litros, que já contém 2 litros. Isso fará com que o balde de 3 litros fique cheio e o balde de 5 litros contenha exatamente 4 litros.
+
+Agora você tem 4 litros no balde de 5 litros e 3 litros no balde de 3 litros, totalizando 7 litros.
+
+Algoritmo:
+
+Encha o balde de 5 litros.
+
+Transfira para o balde de 3 litros até que ele fique cheio.
+
+Esvazie o balde de 3 litros.
+
+Coloque os 2 litros restantes no balde de 3 litros.
+
+Encha o balde de 5 litros novamente.
+
+Transfira para o balde de 3 litros até que ele fique cheio.
+
+Agora o balde de 5 litros tem 4 litros e o balde de 3 litros tem 3 litros.
+
+Problema 2: Retirar exatamente 4 litros de água usando os mesmos baldes
+
+Solução:
+
+Encha o balde de 5 litros completamente.
+
+Transfira a água do balde de 5 litros para o balde de 3 litros até que o balde de 3 litros esteja cheio.
+
+Agora o balde de 5 litros tem 2 litros de água.
+
+Esvazie o balde de 3 litros.
+
+Transfira os 2 litros restantes do balde de 5 litros para o balde de 3 litros.
+
+Encha o balde de 5 litros novamente até 5 litros.
+
+Agora você tem 4 litros de água no balde de 5 litros (o balde de 3 litros já está cheio com 2 litros).
+
+Algoritmo:
+
+Encha o balde de 5 litros.
+
+Transfira para o balde de 3 litros até ele estar cheio.
+
+Esvazie o balde de 3 litros.
+
+Coloque os 2 litros restantes no balde de 3 litros.
+
+Encha o balde de 5 litros novamente.
+
+Transfira para o balde de 3 litros até ele estar cheio.
+
+Agora o balde de 5 litros contém exatamente 4 litros.
