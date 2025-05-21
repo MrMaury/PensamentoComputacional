@@ -1,0 +1,105 @@
+tarefas_pendentes = []
+tarefas_concluidas = []
+
+def exibir_menu():
+    print("\n=== MENU ===")
+    print("[1] Adicionar nova tarefa")
+    print("[2] Listar tarefas")
+    print("[3] Concluir tarefa")
+    print("[4] Editar tarefa pendente")
+    print("[5] Excluir tarefa pendente")
+    print("[6] Sair")
+
+def adicionar_tarefa():
+    tarefa = input("Digite a nova tarefa: ").strip()
+    if tarefa:
+        tarefas_pendentes.append(tarefa)
+        print("Tarefa adicionada com sucesso!")
+    else:
+        print("Texto da tarefa não pode ser vazio.")
+
+def listar_tarefas():
+    print("\n--- Lista de Tarefas ---")
+    if tarefas_pendentes:
+        print("Pendentes:")
+        for i, tarefa in enumerate(tarefas_pendentes, 1):
+            print(f"{i}. {tarefa}")
+    else:
+        print("Nenhuma tarefa pendente.")
+
+    if tarefas_concluidas:
+        print("\nConcluídas:")
+        for i, tarefa in enumerate(tarefas_concluidas, 1):
+            print(f"{i}. {tarefa} ✅")
+    else:
+        print("\nNenhuma tarefa concluída.")
+
+def concluir_tarefa():
+    listar_tarefas()
+    if not tarefas_pendentes:
+        print("Nenhuma tarefa pendente para concluir.")
+        return
+    try:
+        num = int(input("Digite o número da tarefa que deseja concluir: "))
+        if 1 <= num <= len(tarefas_pendentes):
+            tarefa = tarefas_pendentes.pop(num - 1)
+            tarefas_concluidas.append(tarefa)
+            print(f'Tarefa "{tarefa}" marcada como concluída!')
+        else:
+            print("Número inválido.")
+    except ValueError:
+        print("Entrada inválida. Digite um número.")
+
+def editar_tarefa():
+    listar_tarefas()
+    if not tarefas_pendentes:
+        print("Nenhuma tarefa pendente para editar.")
+        return
+    try:
+        num = int(input("Digite o número da tarefa que deseja editar: "))
+        if 1 <= num <= len(tarefas_pendentes):
+            novo_texto = input("Digite o novo texto: ").strip()
+            if novo_texto:
+                tarefas_pendentes[num - 1] = novo_texto
+                print("Tarefa atualizada com sucesso!")
+            else:
+                print("O texto da tarefa não pode ser vazio.")
+        else:
+            print("Número inválido.")
+    except ValueError:
+        print("Entrada inválida. Digite um número.")
+
+def excluir_tarefa():
+    listar_tarefas()
+    if not tarefas_pendentes:
+        print("Nenhuma tarefa pendente para excluir.")
+        return
+    try:
+        num = int(input("Digite o número da tarefa que deseja excluir: "))
+        if 1 <= num <= len(tarefas_pendentes):
+            tarefa = tarefas_pendentes.pop(num - 1)
+            print(f'Tarefa "{tarefa}" excluída com sucesso!')
+        else:
+            print("Número inválido.")
+    except ValueError:
+        print("Entrada inválida. Digite um número.")
+
+while True:
+    exibir_menu()
+    opcao = input("Escolha uma opção: ")
+    
+    if opcao == "1":
+        adicionar_tarefa()
+    elif opcao == "2":
+        listar_tarefas()
+    elif opcao == "3":
+        concluir_tarefa()
+    elif opcao == "4":
+        editar_tarefa()
+    elif opcao == "5":
+        excluir_tarefa()
+    elif opcao == "6":
+        print("Saindo do programa. Até logo!")
+        break
+    else:
+        print("Opção inválida. Tente novamente.")
