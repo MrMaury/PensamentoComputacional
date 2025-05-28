@@ -1,0 +1,81 @@
+nomes = []
+idades = []
+
+def cadastrar_participante():
+    nome = input("Digite o nome do participante: ")
+    idade = int(input("Digite a idade do participante: "))
+    nomes.append(nome)
+    idades.append(idade)
+    print(f"\nParticipante {nome} cadastrado com sucesso!\n")
+
+def listar_participantes():
+    if not nomes:
+        print("\nNenhum participante cadastrado.\n")
+    else:
+        print("\nLista de participantes:")
+        for i in range(len(nomes)):
+            print(f"{nomes[i]} - {idades[i]} anos")
+        print()
+
+def listar_maiores_de_idade():
+    print("\nParticipantes maiores de idade:")
+    encontrou = False
+    for i in range(len(nomes)):
+        if idades[i] >= 18:
+            print(f"{nomes[i]} - {idades[i]} anos")
+            encontrou = True
+    if not encontrou:
+        print("Nenhum participante maior de idade.\n")
+    else:
+        print()
+
+def remover_participante():
+    nome = input("Digite o nome do participante que deseja remover: ")
+    if nome in nomes:
+        indice = nomes.index(nome)
+        nomes.pop(indice)
+        idades.pop(indice)
+        print(f"\nParticipante {nome} removido com sucesso!\n")
+    else:
+        print(f"\nParticipante {nome} não encontrado.\n")
+
+def mostrar_estatisticas():
+    total = len(nomes)
+    if total == 0:
+        print("\nNenhum participante cadastrado.\n")
+    else:
+        media_idades = sum(idades) / total
+        indice_mais_velho = idades.index(max(idades))
+        mais_velho_nome = nomes[indice_mais_velho]
+        mais_velho_idade = idades[indice_mais_velho]
+        print("\nEstatísticas:")
+        print(f"Total de participantes: {total}")
+        print(f"Média de idades: {media_idades:.2f}")
+        print(f"Participante mais velho: {mais_velho_nome} ({mais_velho_idade} anos)\n")
+
+while True:
+    print("=== Sistema de Cadastro de Participantes ===")
+    print("1. Cadastrar participante")
+    print("2. Listar todos os participantes")
+    print("3. Mostrar participantes maiores de idade (18+)")
+    print("4. Remover participante pelo nome")
+    print("5. Mostrar estatísticas")
+    print("6. Sair do programa")
+    
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == '1':
+        cadastrar_participante()
+    elif opcao == '2':
+        listar_participantes()
+    elif opcao == '3':
+        listar_maiores_de_idade()
+    elif opcao == '4':
+        remover_participante()
+    elif opcao == '5':
+        mostrar_estatisticas()
+    elif opcao == '6':
+        print("\nEncerrando o programa. Até a próxima!\n")
+        break
+    else:
+        print("\nOpção inválida. Tente novamente.\n")
